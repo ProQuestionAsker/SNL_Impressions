@@ -21,7 +21,7 @@ Character\_Categories.csv
     -   *name*: Name of person being impersonated (can be used as a key with the Character column of All\_Impressions.csv file)
     -   *occupation*: part of the first sentence scrape from Wikipedia
     -   *Category*: general grouping of similar reasons for fame (see more detailed descriptions below)
--   Other Notes: Not every character had a page on Wikipedia. These had to be searched on Google or other sources to try to discertain information about the original person. If you see errors, please let me know.
+-   **Other Notes**: Not every character had a page on Wikipedia. These had to be searched on Google or other sources to try to discertain information about the original person. If you see errors, please let me know.
 
 **Categories**: Categories were decided based on which categorization is the **most** appropriate for a given character, specifically in regards to why they were featured on SNL.
 
@@ -41,7 +41,7 @@ Character\_Categories.csv
 -   **Reality TV Star**: includes anyone whose claim-to-fame comes from a Reality TV program. This includes contestants on shows (e.g., Survivor, Project Runway, Rock of Love etc.) and those with their own shows (e.g., Kardashians, Paris Hilton etc.)
 -   **Religious Figure**: includes anyone who is a figure within their religion. Due to the lax definition, this includes figures from major religions and from cult-like religions.
 -   **Scientist**: anyone for whom science derives their fame
--   U.S. Political Family: anyone who is a family member of a U.S. politician and is impersonated on SNL *because* of this relationship
+-   **U.S. Political Family**: anyone who is a family member of a U.S. politician and is impersonated on SNL *because* of this relationship
 -   **U.S. Politician**: anyone involved in United States politics. Includes all elected officials (e.g., mayors, senators, governors, vice presidents, presidents) and those that contribute to their work (e.g., chiefs of staff, press secretary, personal secretaries, etc.)
--   Writer: anyone whose primary reason for being impersonated is writing poetry, novels, textbooks etc. This category *does not* include screenwriters, playwrights, songwriters etc.
+-   **Writer**: anyone whose primary reason for being impersonated is writing poetry, novels, textbooks etc. This category *does not* include screenwriters, playwrights, songwriters etc.
 -   **other**: anyone who doesn't fit into any of the above categories
