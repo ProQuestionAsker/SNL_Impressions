@@ -15,13 +15,13 @@ All\_Impressions.csv
 Character\_Categories.csv
 -------------------------
 
--   **Data Collection Method**: Collected list of unique characters impersonated from All\_Impressions.csv file. Created a script using Wikipedia's API to search for each name and retrieve part of the first sentence on the page. This sentence generally gives a brief overview to the person and is most likely to give helpful information about who a characer is. Categories were then used to automatically classify people into characters based on what they are most commonly known for.
+-   **Data Collection Method**: Collected list of unique characters impersonated from All\_Impressions.csv file. Created a script using Wikipedia's API to search for each name and retrieve part of the first sentence on the page. This sentence generally gives a brief overview to the person and is most likely to give helpful information about who a characer is. Categories were then used to automatically classify people into groups based on what they are most commonly known for.
 -   **Observations**: Each row represents a single Character
 -   **Variables**:
-    -   *name*: Name of person being impersonated (can be used as a key with the Character column of All\_Impressions.csv file)
-    -   *occupation*: part of the first sentence scrape from Wikipedia
+    -   *Character*: Name of person being impersonated (can be used as a key with the Character column of All\_Impressions.csv file)
+    -   *Occupation*: part of the first sentence scrape from Wikipedia
     -   *Category*: general grouping of similar reasons for fame (see more detailed descriptions below)
--   **Other Notes**: Not every character had a page on Wikipedia. These had to be searched on Google or other sources to try to discertain information about the original person. If you see errors, please let me know.
+-   **Other Notes**: Not every character had a page on Wikipedia. These had to be searched on Google or other sources to try to discertain information about the original person. If you see errors, please let me know. Also, for people who spanned multiple different categories over the course of SNL history (e.g., Donald Trump was impersonated in the 80's and 90's for being a Business Leader but is not being impersonated as a politician), a single category was chosen that represents the most common reason for impersonation (e.g., for Donald Trump, politician)
 
 **Categories**: Categories were decided based on which categorization is the **most** appropriate for a given character, specifically in regards to why they were featured on SNL.
 
