@@ -45,3 +45,15 @@ Character\_Categories.csv
 -   **U.S. Politician**: anyone involved in United States politics. Includes all elected officials (e.g., mayors, senators, governors, vice presidents, presidents) and those that contribute to their work (e.g., chiefs of staff, press secretary, personal secretaries, etc.)
 -   **Writer**: anyone whose primary reason for being impersonated is writing poetry, novels, textbooks etc. This category *does not* include screenwriters, playwrights, songwriters etc.
 -   **other**: anyone who doesn't fit into any of the above categories
+
+
+------------------------------------------------------------------------
+
+Date\_Season.csv
+-------------------------
+
+-   **Data Collection Method**: Season start and end dates were found on Wikipedia and fed manually into a helper function to label seasons based on the date range that they fell into
+-   **Observations**: Each row represents a single date on which an episode of SNL aired and contained at least one impression
+-   **Variables**: 
+    -   *AirDate*: Date (in %Y-%m-%d format) when the episode originally aired, can be used as a key in the All\_Impressions.csv file
+    -   *Season*: Denotes which season of the television show that a particular date fell into
