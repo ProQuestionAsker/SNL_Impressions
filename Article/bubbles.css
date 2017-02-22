@@ -1,0 +1,196 @@
+/* minimal css reset */
+html, body, div, h1, h2, h3, a, p, img, dl, dt, dd, ul, li {
+	padding: 0; margin: 0; border: 0; outline: 0;
+	color: #fff;
+}
+
+body {
+		background-image: url(img/Mockup.jpg);
+	background-size: 100% 100%;
+  font-family: "Whitney SSm A", "Whitney SSm B" ;
+}
+
+#vis {
+  width: 700px;
+  height: 700px;
+  clear: both;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: center;
+}
+
+
+.search-input-one{
+  position: absolute;
+  width: 240px;
+  height: 50px;
+  display: none;
+  margin: -25px 0 0 -120px;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+background: none;
+  -webkit-border-top-left-radius: 25px;
+  -webkit-border-top-right-radius: 25px;
+  -webkit-border-bottom-right-radius: 25px;
+  -webkit-border-bottom-left-radius: 25px;
+
+  -moz-border-radius-topleft: 25px;
+  -moz-border-radius-topright: 25px;
+  -moz-border-radius-bottomright: 25px;
+  -moz-border-radius-bottomleft: 25px;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+
+
+}
+
+.tooltip {
+    font-family: "Whitney SSm A", "Whitney SSm B";
+  font-size: 11px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  margin: -100px 0 0 -100px;
+	width: 200px;
+  height: 200px;
+	font-size: 12px;
+	z-index: 10;
+	text-align: center;
+}
+
+.tooltip-content-text-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .8px;
+    color: black;
+}
+
+.tooltip-content-text-sub-title {
+    font-weight: 900;
+    color: #929292;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+
+.icon {
+  fill: #28E6FD;
+  -webkit-transition: fill 0.2s ease;
+     -moz-transition: fill 0.2s ease;
+       -o-transition: fill 0.2s ease;
+          transition: fill 0.2s ease;
+}
+
+.bubble {
+  -webkit-transition: all 0.05s ease;
+     -moz-transition: all 0.05s ease;
+       -o-transition: all 0.05s ease;
+          transition: all 0.05s ease;
+}
+
+.bubble:hover {
+  fill: #fff;
+  filter: url(#glowLow);
+}
+
+.behind{
+  z-index: -100;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s ease, filter 0.2s ease;
+     -moz-transition: opacity 0.2s ease, filter 0.2s ease;
+       -o-transition: opacity 0.2s ease, filter 0.2s ease;
+          transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.diceGroup:hover .behind{
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+
+.diceGroup:hover .icon{
+  fill: #FFF;
+}
+
+
+.diceGroup {
+  cursor: pointer;
+}
+
+.searchGroup:hover .behind{
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+
+.searchGroup:hover .icon{
+  fill: #FFF;
+}
+
+
+.searchGroup {
+  cursor: pointer;
+}
+
+
+
+
+/* NEW */
+
+.class {
+  font-weight: bold;
+  line-height: 20px; /* total height of line */
+  text-align: left; /* right center */
+  vertical-align: center; /* where text falls within the line height */
+  font-size: 16px;
+  letter-spacing: -0.25; /* 0 is default */
+
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.impersonations {
+  line-height: 24px;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.description{
+  font-size: 11px;
+  letter-spacing: -0.1px;
+  line-height: 15px;
+  word-wrap: break-word;
+}
+
+
+
+
+
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
