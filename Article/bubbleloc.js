@@ -234,39 +234,63 @@ function bubbleChart(){
 		var diceArea = svg.append("g")
 			.classed("diceGroup", true)
 			.attr("title", "Random Bubble")
-			.on("click", function(d){
-				//console.log((d3.select(d => +d.id === (Math.floor(Math.random() * (2603 - 1 + 1)) + 1))))
-				var randomID = Math.floor(Math.random() * (2603 - 1 + 1) + 1)
-				console.log(randomID)
 
+			// dim all bubbles in preparation of random clicking
+			.on("mouseover", function(d){
+				d3.selectAll(".bubble")
+					.classed("unselected", true)
+			})
+
+			// add click function to select random bubble
+			.on("click", function(d){
+				// reclass anything currently selected as "unclassed"
+				// this way, no 2 circles are lit up simultaneously
+				d3.select(".selected")
+					.classed("selected", false)
+				d3.selectAll(".bubble")
+					.classed("unselected", true)
+
+				// generate a random number between 1 and 2603
+				var randomID = Math.floor(Math.random() * (2603 - 1 + 1) + 1)
+
+				// select any bubbles whose ID number match the random number generated
 				var matchingElements = d3.selectAll('.bubble')
     				.filter(function(d) {
-        				return +d.id === +randomID
+        				return +d.num === +randomID
     				})
-    			console.log(matchingElements)
 
+    			// above selected an array, this selects nodes
     			var element = d3.select(matchingElements.nodes()[0])	
-
-    			element	
-              			tooltip.html('<span class="name">' +
-						d.name + 
+    			
+    			// need to get at the data within the nodes
+    			var datum = element.datum()
+    				tooltip.html('<span class="name">' +
+						datum.name + 
 						'</span>' +
 						'<span class="impersonations">Impersonations: <span>' +
-						d.value +
+						datum.value +
 						'</span></span>'  +
 						'<span class="description">' +
-						d.description +
+						datum.description +
 						'</span>')
+    				
+    				// re-classify any selected element as "selected"
+    				element.classed("selected", true)
 
               		tooltip.style("visibility", "visible")
 
-              		mousemove();
+              		mousemove()
 
+              		// hide the search bar when the dice is clicked on
               		d3.selectAll(".search-input-one")
 						.style("display", "none")
-
-				console.log(element);
 			})
+			// return all bubbles to normal color after mouseout
+			.on("mouseout", function(d){
+				d3.selectAll(".bubble")
+					.classed("unselected", false)
+					.classed("active", true)
+				})
 			
 		
 		// Adding background element behind dice
@@ -356,7 +380,7 @@ function bubbleChart(){
     	linearGradient.append("stop") 
     		.attr("offset", "0%")   
     		.attr("stop-color", "#28E6FD")
-    		.attr("stop-opacity", .35);	
+    		.attr("stop-opacity", .15);	
 
     	linearGradient.append("stop") 
     		.attr("offset", "100%")   
@@ -374,7 +398,7 @@ function bubbleChart(){
     	linearGradient.append("stop") 
     		.attr("offset", "0%")   
     		.attr("stop-color", "#28E6FD")
-    		.attr("stop-opacity", .35);	
+    		.attr("stop-opacity", .15);	
 
     	linearGradient.append("stop") 
     		.attr("offset", "100%")   
