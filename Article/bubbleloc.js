@@ -18,25 +18,7 @@ function bubbleChart(){
 	
 
 
-	//////////////////////////////////////////////////////////////////////
-	/////////////////////////////  TOOL TIPS /////////////////////////////
-	//////////////////////////////////////////////////////////////////////	
-	
-	// Setting up variable for tooltip
-	  var tooltip = d3.select("#vis")
-    	.append("div")
-    	.style("visibility", "hidden")
-    	.classed("tooltip", true);	
 
-    	// Tool tip mousemove functions
-		var mousemove = function() {
-          	return tooltip;
-      		}	 
-
-      	// to hide tooltip when search or random is displayed
-      	function hideTooltip() {
-    		tooltip.style('opacity', 0);
-  		}
   				
 
 
@@ -90,6 +72,27 @@ function bubbleChart(){
 			.attr("viewBox", "0 0 " + width + " " + height);
 
 
+		//////////////////////////////////////////////////////////////////////
+		/////////////////////////////  TOOL TIPS /////////////////////////////
+		//////////////////////////////////////////////////////////////////////	
+	
+		// Setting up variable for tooltip
+	  	var tooltip = d3.select("#vis")
+    		.append("div")
+    		.style("visibility", "hidden")
+    		.classed("tooltip", true)
+    	
+
+    	// Tool tip mousemove functions
+		var mousemove = function() {
+          	return tooltip;
+      	}	 
+
+      	// to hide tooltip when search or random is displayed
+      	function hideTooltip() {
+    		tooltip.style('opacity', 0);
+  		}	
+
 
 
 		//////////////////////////////////////////////////////////////////////
@@ -119,7 +122,9 @@ function bubbleChart(){
 				return d.y + 25;
 			})
 			.on("mouseover", function(d) {
-              tooltip.html('<span class="name">' +
+			   	d3.selectAll("bubble")
+					.classed("active", true)	
+              	tooltip.html('<span class="name">' +
 						d.name + 
 						'</span>' +
 						'<span class="impersonations">Impersonations: <span>' +
@@ -133,6 +138,10 @@ function bubbleChart(){
               d3.selectAll(".search-input-one")
 					.style("display", "none")
       		})
+
+      		/////// Add: click feature to "lock" tooltip
+      		//// mouseover center circle to unlock
+      		//// mouseout outer circle to unlock
 
 
 
@@ -186,14 +195,30 @@ function bubbleChart(){
 		
 		// Adding center circle shape (to surround tool tip)
 		var centerCircle = svg.append("g")
-			.attr("transform", "translate(25, 25)");
-			//.attr("transform", "translate((width/2), (height/2))");	
+			.attr("transform", "translate(25, 25)")
+		
+		// dim all bubbles if coming from pre-dimmed section 
+			.on("mouseover", function(d) {
+        		if(d3.select(".tooltip").style("visibility") === "hidden"){
+            d3.selectAll(".bubble")
+            	.classed("unselected", true);    
+            }
+        })
+
+			.on("mouseout", function(d){
+				d3.selectAll(".bubble")
+					.classed("unselected", false)
+					.classed("active", true)
+				})
+				
+		
+			
 
 		var drawing = centerCircle.append("path")
 			.classed("centerCircle", true)
 			.attr("id", "center") //very important to give the path element a unique ID to reference later
 			.attr("d", "M474.74,325c0-65.464-42.027-121.08-100.557-141.434c-3.957,23.595-24.463,41.576-49.182,41.576 c-24.721,0-45.229-17.981-49.183-41.576c-58.534,20.354-100.56,75.97-100.56,141.434c0,65.463,42.025,121.081,100.56,141.434 c3.954-23.594,24.462-41.576,49.183-41.576c24.719,0,45.225,17.98,49.182,41.576C432.713,446.078,474.74,390.463,474.74,325z")
-			.style("fill", "url(#img1)")
+			.style("fill", "transparent")
 			.style("stroke", "#28E6FD")
 			.attr("stroke-opacity", 0)
 			.transition()
@@ -238,7 +263,12 @@ function bubbleChart(){
 			// dim all bubbles in preparation of random clicking
 			.on("mouseover", function(d){
 				d3.selectAll(".bubble")
+					.classed("selected", false)
 					.classed("unselected", true)
+			// hide the search bar when the dice is moused over
+              	d3.selectAll(".search-input-one")
+					.style("display", "none")
+				//tooltip.style("visibility", "hidden")		
 			})
 
 			// add click function to select random bubble
@@ -281,9 +311,7 @@ function bubbleChart(){
 
               		mousemove()
 
-              		// hide the search bar when the dice is clicked on
-              		d3.selectAll(".search-input-one")
-						.style("display", "none")
+              		
 			})
 			// return all bubbles to normal color after mouseout
 			.on("mouseout", function(d){
@@ -316,16 +344,52 @@ function bubbleChart(){
 		//////////////////////////////  SEARCH  //////////////////////////////	
 
 		
+		// Generating list of names to search by
+		/*var bubbleNames = [];
+		
+		bubbleNames 
+			.filter(rawData, function(d,i) {
+			return re.test(d.Character)});
+
+  		console.log(bubbleNames)*/
+
+
+
+
+
+
+
+
+
 		// Putting magnifying glass icon and background hover in group
 
 		var searchArea = svg.append("g")
 			.classed("searchGroup", true)
 			.attr("title", "Search for a name")
+			// dimming bubbles on hover in preparation for search
+			.on("mouseover", function(d){
+				d3.selectAll(".bubble")
+					.classed("selected", false)
+					.classed("unselected", true)
+				tooltip.style("visibility", "hidden")	
+			})
+
 			.on("click", function(d){
 				console.log("clicked")
-				tooltip.style("visibility", "hidden")
+				
+				d3.selectAll(".selected")
+					.classed("selected", false)
+					.classed("unselected", true)
+
 				d3.selectAll(".search-input-one")
 					.style("display", "inline-block");
+			})
+
+			// return all bubbles to normal color after mouseout
+			.on("mouseout", function(d){
+				d3.selectAll(".bubble")
+					.classed("unselected", false)
+					.classed("active", true)
 			})
 
 		// Adding gradient SVG path behind icon
