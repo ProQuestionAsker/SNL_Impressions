@@ -17,6 +17,7 @@ body {
   margin-bottom: 10px;
   position: relative;
   text-align: center;
+  margin-left: 5%;
 }
 
 
@@ -167,6 +168,10 @@ background: none;
   cursor: pointer;
 }
 
+.lockedBubble {
+  fill: #fff;
+}
+
 
 
 
@@ -223,3 +228,19 @@ background: none;
     top: 10px;
     left: 0;
 }
+
+
+.prose-wrapper {
+    width: 640px;
+    margin: 0 auto;
+    margin-bottom: 70px;
+
+
+.prose{
+  font-family: "Whitney SSm A", "Whitney SSm B" ;
+  font-size: 1rem;
+  line-height: 1.7rem;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}    
+

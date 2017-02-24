@@ -121,8 +121,19 @@ function bubbleChart(){
 			.attr('cy', function(d){
 				return d.y + 25;
 			})
+			// on click, bubble tooltip becomes "locked"
+			// released after mousing over the inner circle or out of outer circle
+			.on("click", function(d){
+				d3.select(this)
+					.classed("lockedBubble", 
+				d3.select(this)
+					.classed("lockedBubble") ? false : true);
+			
+				tooltip.style("visibility", "visible")
+			})
 			.on("mouseover", function(d) {
-			   	d3.selectAll("bubble")
+			   	if(d3.selectAll(".lockedBubble").empty()){
+				d3.selectAll("bubble")	
 					.classed("active", true)	
               	tooltip.html('<span class="name">' +
 						d.name + 
@@ -136,7 +147,7 @@ function bubbleChart(){
               tooltip.style("visibility", "visible")
               mousemove();
               d3.selectAll(".search-input-one")
-					.style("display", "none")
+					.style("display", "none") }
       		})
 
       		/////// Add: click feature to "lock" tooltip
@@ -203,6 +214,9 @@ function bubbleChart(){
             d3.selectAll(".bubble")
             	.classed("unselected", true);    
             }
+
+            d3.selectAll(".bubble")	
+            	.classed("lockedBubble", false)
         })
 
 			.on("mouseout", function(d){
@@ -231,6 +245,10 @@ function bubbleChart(){
 		///////////////////////////  OUTER CIRCLE  //////////////////////////	
 
 		var outerCircle = svg.append("g")
+			.on("mouseleave", function(d){
+				d3.selectAll(".bubble")	
+            	.classed("lockedBubble", false)
+			})
 
 		var outerCircleShape = outerCircle.append("circle")
 			.classed("outerCircle", true)
