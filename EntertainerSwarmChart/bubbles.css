@@ -10,18 +10,6 @@ body {
   font-family: "Whitney SSm A", "Whitney SSm B" ;
 }
 
-#sections {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  top: 0px;
-  z-index: 90;
-}
-
-.step {
-  margin-bottom: 200px;
-}
-
 #vis {
   width: 700px;
   height: 700px;
@@ -29,41 +17,7 @@ body {
   margin-bottom: 10px;
   position: relative;
   text-align: center;
-  margin-left: 5%;
 }
-
-
-.big-title {
-    font-size: 80px;
-    font-family: "Mercury SSm A", "Mercury SSm B";
-    font-style: normal;
-    font-weight: 900;
-    font-style: italic;
-    text-align: center;
-    line-height: 108px;
-    margin: 0 auto;
-    padding: 0px;
-    max-width: 860px;
-}
-
-.title-sub{
-  text-align: center;
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: 500;
-
-}
-
-.by-line{
-  font-family: "Whitney SSm A", "Whitney SSm B";
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 60px;
-  margin-right: 100px;
-}
-
-
 
 
 .search-input-one{
@@ -141,34 +95,33 @@ background: none;
           transition: all 0.05s ease;
 }
 
+.is-special {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+}
+
+
+.axis path, .axis .tick line {
+  display: none;
+}
+
+.axis text {
+  line-height: 24px;
+  font-size: 20px;
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-family: "Whitney SSm A", "Whitney SSm B" ;
+  font-weight: 100;
+}
+
+
+
 .bubble:hover {
   fill: #fff;
   filter: url(#glowLow);
-}
-
-.active {
-  opacity:1 ;
-  -webkit-transition: all 0.9s ease;
-     -moz-transition: all 0.9s ease;
-       -o-transition: all 0.9s ease;
-          transition: all 0.9s ease;
-}
-
-.unselected {
-  opacity: .1;
-    -webkit-transition: all 0.8s ease;
-     -moz-transition: all 0.8s ease;
-       -o-transition: all 0.8s ease;
-          transition: all 0.8s ease;
-}
-
-.selected{
-  opacity: 1;
-  filter: url(#glowLow)
-    -webkit-transition: all 0.05s ease;
-     -moz-transition: all 0.05s ease;
-       -o-transition: all 0.05s ease;
-          transition: all 0.05s ease;
 }
 
 .behind{
@@ -195,10 +148,6 @@ background: none;
   cursor: pointer;
 }
 
-.diceGroup:hover .unselected{
-   opacity: .3;
-}
-
 .searchGroup:hover .behind{
   opacity: 1.0;
   filter: alpha(opacity=100);
@@ -211,10 +160,6 @@ background: none;
 
 .searchGroup {
   cursor: pointer;
-}
-
-.lockedBubble {
-  fill: #fff;
 }
 
 
@@ -273,53 +218,3 @@ background: none;
     top: 10px;
     left: 0;
 }
-
-
-.prose-wrapper {
-    width: 640px;
-    margin: 0 auto;
-    margin-bottom: 70px;
- }  
-
-
-.prose {
-  font-family: "Whitney SSm A", "Whitney SSm B" ;
-  font-size: 1rem;
-  line-height: 1.7rem;
-  margin-bottom: 1.2rem;
-  font-weight: 400;
-}    
-
-
-
-
-  #container{
-    position: relative;
-    overflow: auto;
-  }
-
-  #sections{
-    width: 200px;
-    position: absolute;
-    right: 0;
-  }
-
-
-  #trigger {
-    position: fixed;
-    top: 0px;
-    margin-left: 240px;
-  }
-
-
-  .library__graphic {
-    position: relative;
-
-  }
-
-  .graphic__prose {
-    position: absolute;
-    width: 200px;
-    right: 50px;
-  }
-

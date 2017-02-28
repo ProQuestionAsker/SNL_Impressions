@@ -13,6 +13,14 @@
 </head>
 
 <body>
+  <div class="big-title"> Impressions of Pop Culture
+      </div>
+      <div class="title-sub"> What 42 years and 6,673 impersonations on Saturday Night Live can tell us about popular culture in America.
+      </div>
+      <p class="by-line">By <a href="http://twitter.com/proquesasker">Amber Thomas</a>
+      </p>
+
+
 	<div class="prose-wrapper">
 		<p class="prose">In September 1975, Lynette "Squeaky" Fromme was arrested for wielding a gun at U.S. President Ford. Though her gun never fired (a point she was adamant to make), her would-be assassination attempt was the talk of the entire country. 
 		</p><br>
@@ -25,12 +33,25 @@
 
 
 	</div>
-	<div class="container">
-		<div id="vis">
-			<div class="search-bar-one">
-          		<input class="search-input-one" type="text" placeholder="Find...">
-          	</div>
 
+
+	<div class="library">
+		<div class="library__graphic graphic">
+			<div class="graphic__prose">
+				<p class="trigger", data-step='0'>
+					Here is every person that has been satirized on SNL. The size of each circle reflects how many times they've been impersonated. Bigger circles = more repeat performances.
+				</p>	
+				<p class="trigger", data-step='1'>
+					But why were these people chosen? How did they end up in the pop-culture spotlight?
+				</p>	
+			</div>	
+			<div class="graphic__vis">
+			<div id="vis">
+				<div class="search-bar-one">
+          		<input class="search-input-one" type="text" placeholder="Find...">
+          		</div>
+			</div>
+			</div>
 		</div>
 	</div>
 	
@@ -39,7 +60,46 @@
 	<script src="bubbleloc.js"></script>
 
 	<!-- adding scrolling effects -->
-	<script src='https://1wheel.github.io/graph-scroll/graph-scroll.js'></script>
+	<script src='Libraries/graphScroll.js'></script>	
+
+	<script>
+		(function() {
+
+			function graphscroll() {
+				// select elements using d3 here since this is a d3 library...
+				var graphicEl = d3.select('.graphic')
+				var graphicVisEl = graphicEl.select('.graphic__vis')
+				var triggerEls = graphicEl.selectAll('.trigger')
+
+				// viewport height
+				var viewportHeight = window.innerHeight
+				var halfViewportHeight = viewportHeight / 2
+
+				// a global function creates and handles all the vis + updates
+				var graphic = myBubbleChart
+
+				
+
+				// this is it, graph-scroll handles pretty much everything
+				// it will automatically add class names to the elements,
+				// so you just need to handle the fixed positions with css
+				d3.graphScroll()
+					.container(graphicEl)
+					.graph(graphicVisEl)
+					.sections(triggerEls)
+					.offset(halfViewportHeight)
+					.on('active', function(i) {
+						//graphic.update(i)
+						console.log((i + 'th section active'))
+					})
+			}
+
+			graphscroll()
+
+		})()
+
+	</script>
+
 	
 </body>
 </html>			

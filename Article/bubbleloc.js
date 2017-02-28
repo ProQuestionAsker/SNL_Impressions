@@ -307,7 +307,7 @@ function bubbleChart(){
         				return +d.num === +randomID
     				})
 
-    			// above selected an array, this selects nodes
+    			// code above selected an array, this selects nodes
     			var element = d3.select(matchingElements.nodes()[0])	
     			
     			// need to get at the data within the nodes
@@ -545,17 +545,35 @@ function bubbleChart(){
 
 
 
+	    //////////////////////////////////////////////////////////////////////
+	    ///////////////////////////  SCROLL EVENTS  //////////////////////////
+	    //////////////////////////////////////////////////////////////////////
+
+	 	var graphicEl = d3.select('.graphic')
+	 	var graphicVisEl = graphicEl.select('.graphic__vis')
+	 	var graphicProseEl = graphicEl.select('.graphic__prose')
+
+	 	var steps = [
+	 		function step0(){
+	 			// try changing circles white
+	 			var t = d3.transition()
+	 				.duration(800)
+	 				.ease(d3.easeQuadInOut)
+
+	 			var item = graphicVisEl.selectAll('.item')
+	 			console.log(item)
+	 			
+	 			item.transition(t)
+	 				.style("fill", "ffffff")	
+	 		}
+	 	]
+
+	 	// update chart
+	 	function update(step) {
+			steps[step].call()
+		}
 
 
-		
-
-
-
-
-
-
-
-  
 
 
 	};
@@ -584,6 +602,42 @@ function display(error, data) {
 }
 
 d3.csv('Data/bubbleLocations.csv', display);
+
+
+		// setting up triggered scroll events
+		/*(function() {
+
+			function graphscroll() {
+				// select elements using d3 here since this is a d3 library...
+				var graphicEl = d3.select('.graphic')
+				var graphicVisEl = graphicEl.select('.graphic__vis')
+				var triggerEls = graphicEl.selectAll('.trigger')
+
+				// viewport height
+				var viewportHeight = window.innerHeight
+				var halfViewportHeight = viewportHeight / 2
+
+				// a global function creates and handles all the vis + updates
+				var graphic = myBubbleChart
+
+				
+
+				// this is it, graph-scroll handles pretty much everything
+				// it will automatically add class names to the elements,
+				// so you just need to handle the fixed positions with css
+				d3.graphScroll()
+					.container(graphicEl)
+					.graph(graphicVisEl)
+					.sections(triggerEls)
+					.offset(halfViewportHeight)
+					.on('active', function(i) {
+						graphic.update(i)
+					})
+			}
+
+			graphscroll()
+
+		})()*/
 
 
 
