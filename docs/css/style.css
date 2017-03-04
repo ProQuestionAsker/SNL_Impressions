@@ -94,7 +94,7 @@ a:hover {
 	margin-top: 60px;
 }
 
-/*.name{
+.logo-name{
 	margin: 0px;
 	text-decoration: none;
 	line-height: 15px;
@@ -115,7 +115,7 @@ a:hover {
 	font-size: 0.8rem;
 	margin-top: 0.75em;
 	letter-spacing: 0.05em;
-}*/
+}
 
 
 
@@ -341,6 +341,10 @@ background: none;
      -moz-transition: all 0.8s ease;
        -o-transition: all 0.8s ease;
           transition: all 0.8s ease;
+}
+
+.diceActive.bubble {
+  opacity: 0.1;
 }
 
 .selected{
