@@ -18,6 +18,8 @@ $(document).ready(function() {
 		var windowHeight = $(window).innerHeight();
 		$('.bubble-chart-wrap').css('max-width', windowHeight - 40);
 		$('.bubble-chart-wrap').css('max-height', windowHeight - 40);
+		$('#vis').css('max-width', windowHeight - 40);
+		$('#vis').css('max-height', windowHeight - 40);
 	};
 
 	var windowHeight = $(window).innerHeight();
@@ -94,7 +96,7 @@ $(document).ready(function() {
 	<!-- line chart below here -->
 	<div class="full-frame">
 		<div class="line-chart-wrap">
-			<img src="../img/Graph_Mockup.jpg" alt="" />
+			<span class="line-chart"></span>
 		</div>
 	</div>
 
@@ -107,7 +109,7 @@ $(document).ready(function() {
 	<!-- presidents chart below here -->
 	<div class="full-frame">
 		<div class="presidents-chart-wrap">
-			<img src="../img/President_Mockup.jpg" alt="" />
+			<span class="presidents-chart"></span>
 		</div>
 	</div>
 
