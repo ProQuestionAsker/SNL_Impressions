@@ -1,0 +1,545 @@
+/* scrollbar remains in window */
+html { overflow-y: scroll; }
+
+/* scrollbar styles */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background-color: #444; -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1); }
+::-webkit-scrollbar-thumb { background-color: #666; -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2); }
+::-webkit-scrollbar-thumb:hover { background-color: #999; }
+::-webkit-scrollbar-thumb:active { background-color: #999; -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3); }
+
+/* minimal css reset */
+html, body, div, h1, h2, h3, h4, h5, h6, a, p, img, dl, dt, dd, ul, li { padding: 0; margin: 0; border: 0; outline: 0; }
+
+/* body structure */
+body {
+	background-image: url(../img/Mockup.jpg);
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: 14px;
+	font-weight: 400; /* 900, 500, 600, 700, 400 */
+	line-height: 20px;
+	letter-spacing: .25px;
+	/*background-color: #0e052c;*/
+	color: #FFF;
+	-webkit-overflow-scrolling: touch; /* adds scrolling and bouncing to ios overflow scroll */
+	-webkit-font-smoothing: subpixel-antialiased; /* fixes light font display in safari */
+	-webkit-text-size-adjust: none; /* fix for iOS font resizing */
+	cursor: default;
+}
+
+a {
+	color: #FACA66; /* default */
+	text-decoration: none;
+}
+
+a:hover {
+	color: #EEE;
+}
+
+
+
+
+
+
+
+.logo-container {
+	width: 180px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+}
+
+.logo-svg {
+	width: 50px;
+	height: 50px;
+	fill: #FFF;
+}
+
+.big-title {
+	font-size: 101px;
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-style: normal;
+	font-weight: 900;
+	font-style: italic;
+	text-align: center;
+	line-height: 108px;
+	margin: 0 auto;
+	padding: 0px;
+	max-width: 860px;
+}
+
+.title-sub{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: 500;
+	font-family: "Whitney SSm A", "Whitney SSm B";
+}
+
+.by-line{
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: 13px;
+	font-weight: 500;
+	text-align: center;
+	margin-top: 60px;
+}
+
+/*.name{
+	margin: 0px;
+	text-decoration: none;
+	line-height: 15px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: 600;
+	margin-top: 4px;
+	margin-top: 4px;
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	color: #FFF;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	display: block;
+	font-weight: 600;
+	font-size: 0.8rem;
+	margin-top: 0.75em;
+	letter-spacing: 0.05em;
+}*/
+
+
+
+
+
+
+
+.opening-section {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content:center;
+	justify-content: center;
+	padding-top: 230px;
+	margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+.story-section {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.prose-wrapper {
+	width: 640px;
+	margin: 0 auto 70px auto;
+}
+
+
+
+.prose-bubble-wrapper {
+	position: absolute;
+	overflow: hidden;
+	right: 0;
+	width: 500px;
+	margin: 0 auto;
+	margin-bottom: 70px;
+}
+
+.prose {
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: 1rem;
+	line-height: 1.7rem;
+	margin-bottom: 1.2rem;
+	font-weight: 400;
+}
+
+.prose-bubble {
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: 1rem;
+	line-height: 1.7rem;
+	margin-bottom: 1.2rem;
+	font-weight: 400;
+}
+
+.prose-header {
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: 23px;
+	margin-top: 80px;
+	font-weight: 700;
+	margin-bottom: 43px;
+}
+
+.prose-def {
+	font-size: 18px;
+	font-weight: 500;
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-style: italic;
+	margin-bottom: 15px;
+	margin-top: 36px;
+	line-height: 29px;
+}
+
+.prose-image {
+	margin-bottom: 60px;
+	padding-top: 10px;
+	margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+.full-frame {
+	position: relative;
+	max-width: 1280px;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+/* BUBBLE CHART */
+
+#vis {
+  width: 700px;
+  height: 700px;
+  clear: both;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: center;
+  margin-left: 5%;
+}
+
+.bubble-full-frame {
+	position: relative;
+	min-height: 700px;
+	max-width: 1280px;
+	width: 100%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+.bubble-chart-wrap {
+	position: absolute;
+	left: 0;
+	width: 700px;
+	height: 700px;
+}
+
+.search-input-one{
+  position: absolute;
+  width: 240px;
+  height: 50px;
+  display: none;
+  margin: -25px 0 0 -120px;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+background: none;
+  -webkit-border-top-left-radius: 25px;
+  -webkit-border-top-right-radius: 25px;
+  -webkit-border-bottom-right-radius: 25px;
+  -webkit-border-bottom-left-radius: 25px;
+
+  -moz-border-radius-topleft: 25px;
+  -moz-border-radius-topright: 25px;
+  -moz-border-radius-bottomright: 25px;
+  -moz-border-radius-bottomleft: 25px;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+
+
+}
+
+.tooltip {
+    font-family: "Whitney SSm A", "Whitney SSm B";
+  font-size: 11px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  margin: -100px 0 0 -100px;
+	width: 200px;
+  height: 200px;
+	font-size: 12px;
+	z-index: 10;
+	text-align: center;
+}
+
+.tooltip-content-text-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .8px;
+    color: black;
+}
+
+.tooltip-content-text-sub-title {
+    font-weight: 900;
+    color: #929292;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+
+.icon {
+  fill: #28E6FD;
+  -webkit-transition: fill 0.2s ease;
+     -moz-transition: fill 0.2s ease;
+       -o-transition: fill 0.2s ease;
+          transition: fill 0.2s ease;
+}
+
+.bubble {
+  -webkit-transition: all 0.05s ease;
+     -moz-transition: all 0.05s ease;
+       -o-transition: all 0.05s ease;
+          transition: all 0.05s ease;
+}
+
+.bubble:hover {
+  fill: #fff;
+  filter: url(#glowLow);
+}
+
+.active {
+  opacity:1 ;
+  -webkit-transition: all 0.9s ease;
+     -moz-transition: all 0.9s ease;
+       -o-transition: all 0.9s ease;
+          transition: all 0.9s ease;
+}
+
+.unselected {
+  opacity: .1;
+    -webkit-transition: all 0.8s ease;
+     -moz-transition: all 0.8s ease;
+       -o-transition: all 0.8s ease;
+          transition: all 0.8s ease;
+}
+
+.selected{
+  opacity: 1;
+  filter: url(#glowLow)
+    -webkit-transition: all 0.05s ease;
+     -moz-transition: all 0.05s ease;
+       -o-transition: all 0.05s ease;
+          transition: all 0.05s ease;
+}
+
+.behind{
+  z-index: -100;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s ease, filter 0.2s ease;
+     -moz-transition: opacity 0.2s ease, filter 0.2s ease;
+       -o-transition: opacity 0.2s ease, filter 0.2s ease;
+          transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.diceGroup:hover .behind{
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+
+
+.diceGroup:hover .icon{
+  fill: #FFF;
+}
+
+
+.diceGroup {
+  cursor: pointer;
+}
+
+.searchGroup:hover .behind{
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+
+.searchGroup:hover .icon{
+  fill: #FFF;
+}
+
+
+.searchGroup {
+  cursor: pointer;
+}
+
+.lockedBubble {
+  fill: #fff;
+}
+
+.class {
+  font-weight: bold;
+  line-height: 20px; /* total height of line */
+  text-align: left; /* right center */
+  vertical-align: center; /* where text falls within the line height */
+  font-size: 16px;
+  letter-spacing: -0.25; /* 0 is default */
+
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.impersonations {
+  line-height: 24px;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.description{
+  font-size: 11px;
+  letter-spacing: -0.1px;
+  line-height: 15px;
+  word-wrap: break-word;
+}
+
+
+
+
+
+
+
+.line-chart-wrap {
+	max-width: 960px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+.presidents-chart-wrap {
+	max-width: 800px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1300px) {
+	.bubble-full-frame {
+		position: relative;
+		min-height: 0;
+	}
+	.bubble-chart-wrap {
+		position: relative;
+		margin: 0 auto;
+	}
+	.prose-bubble-wrapper {
+		position: relative;
+		width: 640px;
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.bubble-chart-wrap {
+		width: 95%;
+		height: 0;
+		padding-top: 0; /* ie6 workaround */
+		padding-bottom: 95%; /* responsive square ratio */
+	}
+	.prose-bubble-wrapper {
+		width: 95%;
+	}
+	.prose-wrapper{
+		width: 95%;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.big-title {
+		font-size: 80px;
+		line-height: 87px;
+	}
+
+@media only screen and (max-width: 500px) {
+	.big-title {
+		font-size: 58px;
+		line-height: 70px;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.big-title {
+		font-size: 48px;
+		line-height: 52px;
+	}
+	.title-sub {
+		font-size: 16px;
+		line-height: 23px;
+	}
+	.prose-def {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.logo-container{
+		width: 150px;
+	}
+	.by-line{
+		margin-top: 30px;
+	}
+	.logo-svg{
+		width: 40px;
+		height: 40px;
+	}
+	.prose{
+		font-size: 14px;
+		line-height: 23px;
+	}
+	.big-title{
+		font-size: 41px;
+		line-height: 48px;
+	}
+	.title-sub{
+		font-size: 14px;
+		line-height: 23px;
+	}
+	.opening-section{
+		padding-top: 160px;
+	}
+}

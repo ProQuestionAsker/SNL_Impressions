@@ -112,4 +112,4 @@ var graph = d3.csv(csvpath, function(data) {
       .duration(250)
       .attr("opacity", function(d, j) {
         return j != i ? 0.6 : 1;
-    })
+    })})
