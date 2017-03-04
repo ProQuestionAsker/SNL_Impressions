@@ -123,7 +123,7 @@ function bubbleChart(){
 			})
 			// on click, bubble tooltip becomes "locked"
 			// released after mousing over the inner circle or out of outer circle
-			.on("click", function(d){
+			/*.on("click", function(d){
 				d3.select(this)
 					.classed("lockedBubble", 
 				d3.select(this)
@@ -148,7 +148,7 @@ function bubbleChart(){
               mousemove();
               d3.selectAll(".search-input-one")
 					.style("display", "none") }
-      		})
+      		})*/
 
       		/////// Add: click feature to "lock" tooltip
       		//// mouseover center circle to unlock
@@ -291,12 +291,14 @@ function bubbleChart(){
 
 			// add click function to select random bubble
 			.on("click", function(d){
+				d3.select("#vis svg")
+					.classed("diceActive", true)
 				// reclass anything currently selected as "unclassed"
 				// this way, no 2 circles are lit up simultaneously
 				d3.select(".selected")
 					.classed("selected", false)
-				d3.selectAll(".bubble")
-					.classed("unselected", true)
+				/*d3.selectAll(".bubble")
+					.classed("unselected", true)*/
 
 				// generate a random number between 1 and 2603
 				var randomID = Math.floor(Math.random() * (2603 - 1 + 1) + 1)
@@ -334,8 +336,9 @@ function bubbleChart(){
 			// return all bubbles to normal color after mouseout
 			.on("mouseout", function(d){
 				d3.selectAll(".bubble")
-					.classed("unselected", false)
+					.classed("selected", false)
 					.classed("active", true)
+					.classed("diceActive", false)
 				})
 			
 		

@@ -135,10 +135,10 @@ background: none;
 }
 
 .bubble {
-  -webkit-transition: all 0.05s ease;
+ /* -webkit-transition: all 0.05s ease;
      -moz-transition: all 0.05s ease;
        -o-transition: all 0.05s ease;
-          transition: all 0.05s ease;
+          transition: all 0.05s ease;*/
 }
 
 .bubble:hover {
@@ -154,12 +154,16 @@ background: none;
           transition: all 0.9s ease;
 }
 
-.unselected {
+/*.unselected {
   opacity: .1;
     -webkit-transition: all 0.8s ease;
      -moz-transition: all 0.8s ease;
        -o-transition: all 0.8s ease;
           transition: all 0.8s ease;
+}*/
+
+.diceActive.bubble {
+  opacity: 0.1;
 }
 
 .selected{
