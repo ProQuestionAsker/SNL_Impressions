@@ -123,7 +123,7 @@ function bubbleChart(){
 			})
 			// on click, bubble tooltip becomes "locked"
 			// released after mousing over the inner circle or out of outer circle
-			/*.on("click", function(d){
+			.on("click", function(d){
 				d3.select(this)
 					.classed("lockedBubble", 
 				d3.select(this)
@@ -148,7 +148,7 @@ function bubbleChart(){
               mousemove();
               d3.selectAll(".search-input-one")
 					.style("display", "none") }
-      		})*/
+      		})
 
       		/////// Add: click feature to "lock" tooltip
       		//// mouseover center circle to unlock
