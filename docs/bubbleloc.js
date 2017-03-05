@@ -544,6 +544,153 @@ function bubbleChart(){
 			.style("filter", "url(#glowHigh)");	
 
 		// Glow on hover added in CSS
+
+
+		//////////////////////////////////////////////////////////////////////
+	    /////////////////////  TEXT CATEGORY SELECTIONS  /////////////////////
+	    //////////////////////////////////////////////////////////////////////
+	    
+	    ///////////////////////////  ENTERTAINERS  ///////////////////////////	
+
+	    d3.selectAll(".prose-purple")
+	    	.on("mouseover", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", true)
+	    		var Entertainers = d3.selectAll(".bubble")
+	    			.filter(function(d) {
+        				return d.HigherCategory === "Entertainer"
+    				})
+
+    			
+					Entertainers.classed("selected", true);	
+
+			
+	    	})	
+	    	.on("mouseout", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", false)
+	    			.classed("selected", false)
+	    			.classed("active", true)
+	    	})
+
+
+	    d3.selectAll(".prose-link-purple")
+	    	.on("mouseover", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", true)
+	    		var idFilter = d3.select(this).attr("id")
+	    		var Entertainers = d3.selectAll(".bubble")
+	    			.filter(function(d) {
+        				return d.category === idFilter
+    				})
+
+    			
+					Entertainers.classed("selected", true);	
+
+			
+	    	})	
+	    	.on("mouseout", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", false)
+	    			.classed("selected", false)
+	    			.classed("active", true)
+	    	})	
+
+
+
+
+	   	///////////////////////////  POLITICIANS  ///////////////////////////	
+
+	    d3.selectAll(".prose-blue")
+	    	.on("mouseover", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", true)
+	    		var Entertainers = d3.selectAll(".bubble")
+	    			.filter(function(d) {
+        				return d.HigherCategory === "Politicians & Law Professionals"
+    				})
+
+    			
+					Entertainers.classed("selected", true);	
+
+			
+	    	})	
+	    	.on("mouseout", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", false)
+	    			.classed("selected", false)
+	    			.classed("active", true)
+	    	})	
+
+
+	    d3.selectAll(".prose-link-blue")
+	    	.on("mouseover", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", true)
+	    		var idFilter = d3.select(this).attr("id")
+	    		var Entertainers = d3.selectAll(".bubble")
+	    			.filter(function(d) {
+        				return d.category === idFilter
+    				})
+
+    			
+					Entertainers.classed("selected", true);	
+
+			
+	    	})	
+	    	.on("mouseout", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", false)
+	    			.classed("selected", false)
+	    			.classed("active", true)
+	    	})		
+
+
+	   	///////////////////////////  OTHER  ///////////////////////////	
+
+	    d3.selectAll(".prose-green")
+	    	.on("mouseover", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", true)
+	    		var Entertainers = d3.selectAll(".bubble")
+	    			.filter(function(d) {
+        				return d.HigherCategory === "Other"
+    				})
+
+    			
+					Entertainers.classed("selected", true);	
+
+			
+	    	})	
+	    	.on("mouseout", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", false)
+	    			.classed("selected", false)
+	    			.classed("active", true)
+	    	})		
+
+
+	    d3.selectAll(".prose-link-green")
+	    	.on("mouseover", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", true)
+	    		var idFilter = d3.select(this).attr("id")
+	    		var Entertainers = d3.selectAll(".bubble")
+	    			.filter(function(d) {
+        				return d.category === idFilter
+    				})
+
+    			
+					Entertainers.classed("selected", true);	
+
+			
+	    	})	
+	    	.on("mouseout", function(d){
+	    		d3.selectAll(".bubble")
+	    			.classed("unselected", false)
+	    			.classed("selected", false)
+	    			.classed("active", true)
+	    	})	
 		
 
 

@@ -13,14 +13,14 @@ html, body, div, h1, h2, h3, h4, h5, h6, a, p, img, dl, dt, dd, ul, li { padding
 
 /* body structure */
 body {
-	background-image: url(../img/Mockup.jpg);
+	/*background-image: url(../img/Mockup.jpg);*/
 	background-size: 100% 100%;
 	font-family: "Whitney SSm A", "Whitney SSm B";
 	font-size: 14px;
 	font-weight: 400; /* 900, 500, 600, 700, 400 */
 	line-height: 20px;
 	letter-spacing: .25px;
-	/*background-color: #0e052c;*/
+	background-color: #1e153b;
 	color: #FFF;
 	-webkit-overflow-scrolling: touch; /* adds scrolling and bouncing to ios overflow scroll */
 	-webkit-font-smoothing: subpixel-antialiased; /* fixes light font display in safari */
@@ -31,6 +31,7 @@ body {
 a {
 	color: #FACA66; /* default */
 	text-decoration: none;
+	border-bottom: 1px dashed;
 }
 
 a:hover {
@@ -66,11 +67,10 @@ a:hover {
 }
 
 .big-title {
-	font-size: 101px;
-	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: 85px;
+	font-family: "Mercury SSm A", "Mercury SSm B";
 	font-style: normal;
 	font-weight: 900;
-	font-style: italic;
 	text-align: center;
 	line-height: 108px;
 	margin: 0 auto;
@@ -155,10 +155,11 @@ a:hover {
 
 
 .prose-bubble-wrapper {
+	text-align: left;
 	position: absolute;
 	overflow: hidden;
 	right: 0;
-	width: 500px;
+	width: 400px;
 	margin: 0 auto;
 	margin-bottom: 70px;
 }
@@ -171,6 +172,29 @@ a:hover {
 	font-weight: 400;
 }
 
+.prose-highlight-inline {
+	color: #4EEA4E;
+
+
+}
+
+.prose-highlight {
+	border: 1px solid;
+	border-color: #AD83E9;
+	border-radius: 6px;
+	font-weight: 500;
+	font-size: 1.2em;
+	max-width: 325px;
+	padding: 0.25em 0.75em;
+	margin: 1rem auto 1rem auto;
+	display: block;
+	text-align: center;
+	color: #AD83E9;
+
+}
+
+
+
 .prose-bubble {
 	font-family: "Whitney SSm A", "Whitney SSm B";
 	font-size: 1rem;
@@ -180,11 +204,72 @@ a:hover {
 }
 
 .prose-header {
-	font-family: "Whitney SSm A", "Whitney SSm B";
-	font-size: 23px;
-	margin-top: 80px;
-	font-weight: 700;
+	font-family: "Mercury SSm A", "Mercury SSm B";
+	font-size: 28px;
+	line-height: 32px;
+	margin-top: 60px;
+	font-weight: 500;
 	margin-bottom: 43px;
+	padding: 20px 50px;
+	background-color: rgba(255,255,255,.1);
+/*	background-color: #28E6FD; */
+	text-align: center;
+	color: #28E6FD;
+	border-radius: 6px;
+/*	color: #19094F; */
+}
+
+
+
+.prose-subheading {
+	font-family: "Mercury SSm A", "Mercury SSm B";
+	font-size: 18px;
+	line-height: 24px;
+	margin-top: 30px;
+	font-weight: 500;
+	margin-bottom: 10px;
+	padding: 6px 0;
+	border-bottom: 1px solid #666;
+/*	background-color: #28E6FD; */
+	text-align: left;
+	color: #28E6FD;
+/*	color: #19094F; */
+}
+
+.prose-purple {
+	color: #AD83E9;
+	border-color: #AD83E9;
+}
+
+.prose-blue {
+	color: #28E6FD;
+	border-color: #28E6FD;
+}
+
+.prose-green {
+	color: #4EEA4E;
+	border-color: #4EEA4E;
+}
+
+.prose-link-purple {
+	color: #FFF; /* default */
+	text-decoration: none;
+	border-bottom: 1px dashed;
+	border-color: #AD83E9;
+}
+
+.prose-link-blue {
+	color: #FFF; /* default */
+	text-decoration: none;
+	border-bottom: 1px dashed;
+	border-color: #28E6FD;
+}
+
+.prose-link-green {
+	color: #FFF; /* default */
+	text-decoration: none;
+	border-bottom: 1px dashed;
+	border-color: #4EEA4E;
 }
 
 .prose-def {
@@ -195,6 +280,17 @@ a:hover {
 	margin-bottom: 15px;
 	margin-top: 36px;
 	line-height: 29px;
+}
+
+.prose-note {
+	font-weight: 300;
+	font-family: "Whitney SSm A", "Whitney SSm B";
+	font-size: .8rem;
+	line-height: 1.2rem;
+	margin-bottom: 1.2rem;
+	font-style: italic;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
 }
 
 .prose-image {
@@ -234,7 +330,7 @@ a:hover {
 .bubble-full-frame {
 	position: relative;
 	min-height: 700px;
-	max-width: 1280px;
+	max-width: 1180px;
 	width: 100%;
 	margin: 50px auto;
 	text-align: center;
@@ -449,7 +545,7 @@ background: none;
 	width: 100%;
 	height: 0;
 	padding-bottom: 52.9%; /*responsive*/
-	background: url(../img/Graph_Mockup.jpg);
+	background: url(../img/Graph_Mockup.png);
 	background-size: 100% 100%;
 	display: block;
 }
@@ -471,7 +567,7 @@ background: none;
 
 .presidents-chart {
 	width: 100%;
-	background: url(../img/President_Mockup.jpg);
+	background: url(../img/President_Mockup.png);
 	background-size: 100% 100%;
 	height: 0;
 	padding-bottom: 52.9%; /*responsive*/
